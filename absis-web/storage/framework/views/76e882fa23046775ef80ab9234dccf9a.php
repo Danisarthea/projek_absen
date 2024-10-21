@@ -34,7 +34,7 @@
                         <tr>
                           <td class="text-center"><?php echo e($loop->iteration); ?></td>
                           <td class="text-center"><?php echo e($wl->nama); ?></td>
-                          <td class="text-center"><?php echo e($wl->wali_kelas); ?></td>
+                          <td class="text-center"><?php echo e($wl->kelas ? $wl->kelas->nama_kelas : '-'); ?></td>
                           <td class="text-center"><?php echo e($wl->kontak); ?></td>
                           <td class="text-center"><?php echo e($wl->jenis_kelamin); ?></td>
                           <td class="text-center">

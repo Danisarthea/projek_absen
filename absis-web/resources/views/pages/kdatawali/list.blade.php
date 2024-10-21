@@ -34,7 +34,7 @@
                         <tr>
                           <td class="text-center">{{ $loop->iteration }}</td>
                           <td class="text-center">{{ $wl->nama }}</td>
-                          <td class="text-center">{{ $wl->wali_kelas }}</td>
+                          <td class="text-center">{{ $wl->kelas ? $wl->kelas->nama_kelas : '-' }}</td>
                           <td class="text-center">{{ $wl->kontak }}</td>
                           <td class="text-center">{{ $wl->jenis_kelamin }}</td>
                           <td class="text-center">

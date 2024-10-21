@@ -8,9 +8,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Siswa extends Model
 {
-   protected $guarded;
+    use HasFactory;
 
-   public function kelas(): BelongsTo{
-      return $this->belongsTo(Kelas::class);
-   }
+    protected $guarded = [];
+
+    public function kelas(): BelongsTo
+    {
+        return $this->belongsTo(Kelas::class);
+    }
 }

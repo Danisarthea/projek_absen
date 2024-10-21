@@ -3,13 +3,16 @@
 <?php $__env->startSection('content'); ?>
 <div class="container">
   <div class="page-inner">
+    <form action="<?php echo e(route('list_kelas.store')); ?>" method="POST">
+      <?php echo csrf_field(); ?>
       <div class="d-flex justify-content-end align-items-center mb-3">
-      <label for="exampleInputPassword1">Tambah Kelas</label>
+          <label for="nama_kelas">Tambah Kelas</label>      
           <div class="form-group col-6">
-              <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Nama Kelas">
+              <input type="text" class="form-control" name="nama_kelas" id="nama_kelas" placeholder="Nama Kelas">
           </div>
-          <a href="" class="btn btn-primary">Tambah</a>
+          <button type="submit" class="btn btn-primary">Tambah</button>
       </div>
+  </form>  
       <div class="col-md-12">
         <div class="card">
           <div class="card-header d-flex justify-content-between">
@@ -30,15 +33,19 @@
               </thead>
               <tbody>
                 <?php $__currentLoopData = $kelas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $kel): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                  <tr>
-                    <td class="text-center"><?php echo e($loop->iteration); ?></td>
-                    <td class="text-center"><?php echo e($kel->nama_kelas); ?></td>
-                    <td class="text-center"><?php echo e($kel->siswa->count()); ?></td>
-                    <td class="text-center"><?php echo e($kel->guru->nama ?? '-'); ?></td>
-                    <td class="text-center"></td>
-                  </tr>
+                    <tr>
+                        <td class="text-center"><?php echo e($loop->iteration); ?></td>
+                        <td class="text-center"><?php echo e($kel->nama_kelas); ?></td>
+                        <td class="text-center"><?php echo e($kel->siswa->count()); ?></td>
+                        <td class="text-center">
+                            <?php echo e($kel->wali ? $kel->wali->nama : '-'); ?>
+
+                        </td>
+                        <td class="text-center"></td>
+                    </tr>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-              </tbody>
+            </tbody>
+            
             </table>
             <!-- end tabel  -->
 

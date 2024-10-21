@@ -50,16 +50,22 @@ unset($__errorArgs, $__bag); ?>" name="nama" value="<?php echo e(old('nama')); ?
                         </div>
                         <div class="form-group">
                             <label for="kelas">Kelas</label>
-                            <input type="text" id="kelas" class="form-control <?php $__errorArgs = ['kelas'];
+                            <select id="kelas" class="form-control <?php $__errorArgs = ['kelas'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" name="kelas" value="<?php echo e(old('kelas')); ?>">
+unset($__errorArgs, $__bag); ?>" name="kelas">
+                                <option value="" disabled selected>Pilih Kelas</option>
+                                <?php $__currentLoopData = $kelas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $kel): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($kel->id); ?>" <?php echo e(old('kelas') == $kel->id ? 'selected' : ''); ?>><?php echo e($kel->nama_kelas); ?></option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </select>
                             <span><?php echo e($errors->first('kelas')); ?></span>
                         </div>
+                        
                         <div class="form-group">
                             <label for="nis">Nis</label>
                             <input type="number" id="nis" class="form-control <?php $__errorArgs = ['nis'];

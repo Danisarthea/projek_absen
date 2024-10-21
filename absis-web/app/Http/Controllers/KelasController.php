@@ -13,23 +13,12 @@ class KelasController extends Controller
     // start kelola kelas
 
     // Dalam Controller Anda
-public function index()
-{
-    $data['kelas'] = \App\Models\Siswa::latest()->paginate(10);
-    return view('pages.kdatakelas.list', compact('kelas'));
-}
+    public function index()
+        {
+            $data['kelas'] = \App\Models\Kelas::latest()->get(); // Jangan lupa panggil `get()` untuk mendapatkan hasil
+            return view('pages.kdatakelas.list', $data);
+        }
 
-    public function tambahsiswa_kelas()
-    {
-        //
-        return view('pages.kdatakelas.tambahsiswa');
-    }
-
-    public function tambahwali_kelas()
-    {
-        //
-        return view('pages.kdatakelas.tambahwali');
-    }
 
     // end kelola kelas
     /**
@@ -37,21 +26,23 @@ public function index()
      */
     public function create()
     {
-        //
+        return view('pages.kdatakelas.list');
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        $requestData = $request->validate(['nama' => 'required']);
+{
+    $requestData = $request->validate(['nama_kelas' => 'required']);
+    
+    $kelas = new \App\Models\Kelas();
+    $kelas->fill($requestData);
+    $kelas->save();
+    
+    return redirect()->route('list_kelas.index')->with('pesan', 'Data Berhasil Disimpan');
+}
 
-        $kelas = new \App\Models\Kelas();
-        $kelas->fill($requestData);
-        $kelas->save();
-        return view('pages.kdatakelas.list')->with('pesan', 'Data Berhasil Disimpan');
-    }
 
     /**
      * Display the specified resource.

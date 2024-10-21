@@ -15,40 +15,51 @@ class SiswaController extends Controller
 
     public function index()
     {
-        
-        $data['siswa'] = \App\Models\Siswa::latest()->paginate(10);
+        $data['siswa'] = \App\Models\Siswa::with('kelas')->latest()->paginate(10);
         return view('pages.kdatasiswa.list', $data);
     }
+    
 
     /**
      * Show the form for creating a new resource.
      */
+  
     public function create()
     {
-        //
-        return view('pages.kdatasiswa.tambah');
+        $kelas = \App\Models\Kelas::all();
+        return view('pages.kdatasiswa.tambah', compact('kelas'));
     }
+    
+    
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        $requestData = $request->validate([ 
+        $requestData = $request->validate([
             'nama' => 'required|min:3',
-            'kelas' => 'required|max:7',
+            'kelas' => 'required|exists:kelas,id',
             'nis' => 'required|min:6|max:6',
             'jenis_kelamin' => 'required',
             'alamat' => 'nullable',
-            'foto' => 'required|image|mimes:jpeg,png,jpg|max:10000'
-         ]);
-
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:10000'
+        ]);
+    
         $siswa = new \App\Models\Siswa();
-        $siswa->fill($requestData);
-        $siswa->foto = $request->file('foto')->store('public');
+        $siswa->nama = $requestData['nama'];
+        $siswa->kelas_id = $requestData['kelas'];
+        $siswa->nis = $requestData['nis'];
+        $siswa->jenis_kelamin = $requestData['jenis_kelamin'];
+        $siswa->alamat = $requestData['alamat'];
+        if ($request->hasFile('foto')) {
+            $siswa->foto = $request->file('foto')->store('public');
+        }
         $siswa->save();
-        return view('pages.kdatasiswa.tambah')->with('pesan', 'Data Berhasil Disimpan');
+    
+        return redirect()->route('list_siswa.index')->with('pesan', 'Data Berhasil Disimpan');
     }
+    
 
     /**
      * Display the specified resource.

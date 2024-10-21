@@ -30,28 +30,14 @@
                         </div>
                         <div class="form-group">
                             <label for="wali_kelas">Wali Kelas</label>
-                            <select id="wali_kelas" name="wali_kelas" class="form-control" name="wali_kelas" value="{{ old('wali_kelas') }}" required>
+                            <select id="wali_kelas" name="wali_kelas" class="form-control" required>
                                 <option value="">Pilih Kelas</option>
-                                <option value="X-RPL">X RPL</option>
-                                <option value="X-TKJ">X TKJ</option>
-                                <option value="X-TKR">X TKR</option>
-                                <option value="X-AK">X AK</option>
-                                <option value="X-MP">X MP</option>
-                                <option value="X-HTL">X HTL</option>
-                                <option value="XI-RPL">XI RPL</option>
-                                <option value="XI-TKJ">XI TKJ</option>
-                                <option value="XI-TKR">XI TKR</option>
-                                <option value="XI-AK">XI AK</option>
-                                <option value="XI-MP">XI MP</option>
-                                <option value="XI-HTL">XI HTL</option>
-                                <option value="XII-RPL">XII RPL</option>
-                                <option value="XII-TKJ">XII TKJ</option>
-                                <option value="XII-TKR">XII TKR</option>
-                                <option value="XII-AK">XII AK</option>
-                                <option value="XII-MP">XII MP</option>
-                                <option value="XII-HTL">XII HTL</option>
+                                @foreach ($kelas as $k)
+                                    <option value="{{ $k->id }}">{{ $k->nama_kelas }}</option>
+                                @endforeach
                             </select>
                         </div>
+                        
                         <div class="form-group">
                             <label for="kontak">Kontak</label>
                             <input type="number" id="kontak" class="form-control" name="kontak" value="{{ old('kontak') }}" required>

@@ -35,9 +35,15 @@
                         </div>
                         <div class="form-group">
                             <label for="kelas">Kelas</label>
-                            <input type="text" id="kelas" class="form-control @error('kelas') is-invalid @enderror" name="kelas" value="{{ old('kelas') }}">
+                            <select id="kelas" class="form-control @error('kelas') is-invalid @enderror" name="kelas">
+                                <option value="" disabled selected>Pilih Kelas</option>
+                                @foreach ($kelas as $kel)
+                                    <option value="{{ $kel->id }}" {{ old('kelas') == $kel->id ? 'selected' : '' }}>{{ $kel->nama_kelas }}</option>
+                                @endforeach
+                            </select>
                             <span>{{ $errors->first('kelas') }}</span>
                         </div>
+                        
                         <div class="form-group">
                             <label for="nis">Nis</label>
                             <input type="number" id="nis" class="form-control @error('nis') is-invalid @enderror" name="nis" value="{{ old('nis') }}">

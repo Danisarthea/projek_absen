@@ -44,11 +44,11 @@
 
 
                           </td>
-                          <td class="text-center"><?php echo e($item->kelas); ?></td>
+                          <td class="text-center"><?php echo e($item->kelas->nama_kelas); ?></td>
                           <td class="text-center"><?php echo e($item->nis); ?></td>
                           <td class="text-center"><?php echo e($item->jenis_kelamin); ?></td>
                           <td class="text-center"><?php echo e($item->alamat); ?></td>
-                          <td>
+                          <td class="text-center">
                             <a href="/list_siswa/<?php echo e($item->id); ?>/edit" class="btn btn-primary"><i class="far fa-edit"></i></a>
                             <form action="/list_siswa/<?php echo e($item->id); ?>" method="post" class="d-inline">
                               <?php echo csrf_field(); ?>

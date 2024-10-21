@@ -3,15 +3,16 @@
 @section('content')
 <div class="container">
   <div class="page-inner">
+    <form action="{{ route('list_kelas.store') }}" method="POST">
+      @csrf
       <div class="d-flex justify-content-end align-items-center mb-3">
-        <form action="">
-      <label for="nama_kelas">Tambah Kelas</label>
+          <label for="nama_kelas">Tambah Kelas</label>      
           <div class="form-group col-6">
-              <input type="text" class="form-control" name="nama" id="nama_kelas" placeholder="Nama Kelas">
+              <input type="text" class="form-control" name="nama_kelas" id="nama_kelas" placeholder="Nama Kelas">
           </div>
-          <a href="" class="btn btn-primary">Tambah</a>
-        </form>
+          <button type="submit" class="btn btn-primary">Tambah</button>
       </div>
+  </form>  
       <div class="col-md-12">
         <div class="card">
           <div class="card-header d-flex justify-content-between">
@@ -32,15 +33,18 @@
               </thead>
               <tbody>
                 @foreach ($kelas as $kel)
-                  <tr>
-                    <td class="text-center">{{ $loop->iteration }}</td>
-                    <td class="text-center">{{ $kel->nama_kelas }}</td>
-                    <td class="text-center">{{ $kel->siswa->count() }}</td>
-                    <td class="text-center">{{ $kel->guru->nama ?? '-' }}</td>
-                    <td class="text-center"></td>
-                  </tr>
+                    <tr>
+                        <td class="text-center">{{ $loop->iteration }}</td>
+                        <td class="text-center">{{ $kel->nama_kelas }}</td>
+                        <td class="text-center">{{ $kel->siswa->count() }}</td>
+                        <td class="text-center">
+                            {{ $kel->wali ? $kel->wali->nama : '-' }}
+                        </td>
+                        <td class="text-center"></td>
+                    </tr>
                 @endforeach
-              </tbody>
+            </tbody>
+            
             </table>
             <!-- end tabel  -->
 

@@ -7,8 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Wali extends Model
 {
+    use HasFactory;
+
+    protected $guarded = [];
+
     public function kelas()
     {
-        return $this->belongsTo(Kelas::class);
+        return $this->belongsTo(Kelas::class, 'wali_kelas');
     }
+    
 }
+

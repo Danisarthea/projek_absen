@@ -43,11 +43,11 @@
                             {{ $item->nama }}
 
                           </td>
-                          <td class="text-center">{{ $item->kelas }}</td>
+                          <td class="text-center">{{ $item->kelas->nama_kelas }}</td>
                           <td class="text-center">{{ $item->nis }}</td>
                           <td class="text-center">{{ $item->jenis_kelamin }}</td>
                           <td class="text-center">{{ $item->alamat }}</td>
-                          <td>
+                          <td class="text-center">
                             <a href="/list_siswa/{{ $item->id }}/edit" class="btn btn-primary"><i class="far fa-edit"></i></a>
                             <form action="/list_siswa/{{ $item->id }}" method="post" class="d-inline">
                               @csrf
