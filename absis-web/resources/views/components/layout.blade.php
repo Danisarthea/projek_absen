@@ -106,17 +106,17 @@
                 </span>
                 <h4 class="text-section">Admin</h4>
               </li>
-              <li class="nav-item {{ \Route::is('pages.kdatasiswa.*') ? 'active' : '' }}">
+              <li class="nav-item {{ \Route::is('/list_siswa') ? 'active' : '' }}">
                 <a href="{{ route('list_siswa.index') }}">
                   <i class="fas fa-user"></i>
                   <span class="sub-item">Data Siswa</span>
                 </a>
-              </li><li class="nav-item {{ \Route::is('pages.kdatawali.*') ? 'active' : '' }}">
+              </li><li class="nav-item {{ \Route::is('/list_wali') ? 'active' : '' }}">
                 <a href="{{ route('list_wali.index') }}">
                   <i class="fas fa-user-tie"></i>
                   <span class="sub-item">Data Wali Kelas</span>
                 </a>
-              </li><li class="nav-item {{ \Route::is('pages.kdatakelas.*') ? 'active' : '' }}">
+              </li><li class="nav-item {{ \Route::is('/list_kelas') ? 'active' : '' }}">
                 <a href="{{ route('list_kelas.index') }}">
                   <i class="fas fa-chalkboard-teacher"></i>
                   <span class="sub-item">Data Kelas</span>

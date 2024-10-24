@@ -1,41 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\History;
 use Illuminate\Http\Request;
 
-class WalikelasController extends Controller
+class HistoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-   // menu wali kelas
+    public function index()
+    {
+        $history = \App\Models\History::all();
+        return view('home', compact('history'));
+    }
+    
 
-//    public function index()
-//    {
-//        //
-//        return view('home');
-//    }
-
-   public function antri_verifikasi()
-   {
-       //
-       return view('pages.verifikasi.antriverifikasi');
-   }
-
-   public function verifikasi()
-   {
-       //
-       return view('pages.verifikasi.verifikasi');
-   }
-
-   public function laporan()
-   {
-       //
-       return view('pages.laporan.laporan');
-   }
-
-   // end menu wali kelas
     /**
      * Show the form for creating a new resource.
      */
@@ -49,7 +29,15 @@ class WalikelasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $requestData = $request->validate([
+            'nama' => 'required|min:3',
+            'kelas' => 'required|max:6',
+            'keterangan' => 'required'
+        ]);
+
+        $history = new \App\Models\History();
+        $history->fill($requestData);
+        $history->save();
     }
 
     /**
