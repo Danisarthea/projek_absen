@@ -12,12 +12,13 @@ class Kelas extends Model
     protected $guarded = [];
 
     public function siswa()
-    {
-        return $this->hasMany(Siswa::class);
-    }
+{
+    return $this->hasMany(Siswa::class, 'kelas_id');
+}
 
-    public function wali()
-    {
-        return $this->hasOne(Wali::class, 'wali_kelas', 'id');
-    }
+public function wali()
+{
+    return $this->hasOne(Wali::class, 'wali_kelas', 'id');
+}
+
 }

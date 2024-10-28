@@ -1,12 +1,18 @@
 <?php
+// Admin
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\SiswaController;
+use App\Http\Controllers\Admin\WaliController;
+use App\Http\Controllers\Admin\KelasController;
+use App\Http\Controllers\LaporanController as ControllersLaporanController;
+// WaliKelas
+Use App\Http\Controllers\Wali\WalikelasController;
+use App\Http\Controllers\Wali\HistoryController;
+use App\Http\Controllers\Wali\LaporanController;
 
-use App\Http\Controllers\UserController;
+
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SiswaController;
-use App\Http\Controllers\WaliController;
-use App\Http\Controllers\KelasController;
-Use App\Http\Controllers\WalikelasController;
-use App\Http\Controllers\HistoryController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -16,7 +22,7 @@ Route::get('/', function () {
 Route::resource('/', HistoryController::class);
 Route::get('antri_verifikasi', [WalikelasController::class, 'antri_verifikasi'])->name('pages.verifikasi.antriverifikasi');
 Route::get('verifikasi', [WalikelasController::class, 'verifikasi'])->name('pages.verifikasi.verifikasi');
-Route::get('laporan', [WalikelasController::class, 'laporan'])->name('pages.laporan.laporan');
+Route::resource('laporan', LaporanController::class);
 
     // end menu wali kelas
 
@@ -35,4 +41,4 @@ Route::get('laporan', [WalikelasController::class, 'laporan'])->name('pages.lapo
 
 
     // start kelola data kehadiran
-Route::get('kehadiran', [UserController::class, 'kehadiran'])->name('pages.kdatakehadiran.kehadiran');
+    Route::get('kehadiran', [UserController::class, 'kehadiran'])->name('pages.kdatakehadiran.kehadiran');

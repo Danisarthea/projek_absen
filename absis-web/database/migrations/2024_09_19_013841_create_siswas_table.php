@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nama');
             $table->unsignedBigInteger('kelas_id');
             $table->foreign('kelas_id')->references('id')->on('kelas');
-            $table->integer('nis');
+            $table->string('nis');
             $table->enum('jenis_kelamin', ['laki-laki', 'perempuan']);
             $table->string('alamat')->nullable();
             $table->timestamps();
