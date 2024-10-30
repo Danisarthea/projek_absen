@@ -51,6 +51,7 @@
                           <td class="text-center">{{ $item->jenis_kelamin }}</td>
                           <td class="text-center">{{ $item->alamat }}</td>
                           <td class="text-center">
+                            <a href="{{ route('list_siswa.show', $item->id) }}" class="btn btn-info"><i class="far fa-eye"></i></a>
                             <a href="/list_siswa/{{ $item->id }}/edit" class="btn btn-primary"><i class="far fa-edit"></i></a>
                             <form action="/list_siswa/{{ $item->id }}" method="post" class="d-inline">
                               @csrf

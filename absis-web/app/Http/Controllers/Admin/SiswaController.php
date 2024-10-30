@@ -66,10 +66,12 @@ class SiswaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $siswa = Siswa::with('kelas')->findOrFail($id); // Get student with their class information
+        return view('pages.admin.kdatasiswa.detailsiswa', compact('siswa'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -113,3 +115,5 @@ class SiswaController extends Controller
         return back();
     }
 }
+
+

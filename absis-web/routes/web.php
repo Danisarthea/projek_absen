@@ -30,6 +30,8 @@ Route::resource('laporan', LaporanController::class);
 
     // start kelola data siswa
     Route::resource('list_siswa', SiswaController::class);
+    Route::get('/list_siswa/{id}', [SiswaController::class, 'show'])->name('list_siswa.show');
+
 
 
     // start kelola data wali
@@ -42,3 +44,4 @@ Route::resource('laporan', LaporanController::class);
 
     // start kelola data kehadiran
     Route::get('kehadiran', [UserController::class, 'kehadiran'])->name('pages.kdatakehadiran.kehadiran');
+    
