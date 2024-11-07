@@ -46,7 +46,7 @@ Route::get('/', function () {
             'show' => 'wali.antri_verifikasi.show',
             'edit' => 'wali.antri_verifikasi.edit',
             'update' => 'wali.antri_verifikasi.update',
-            'destroy' => 'wali.antri_verifikasi.destroy',
+            'destroy' => 'wali.antri_verifikasi.destroy'
         ]);
 
         Route::resource('verifikasi', VerifikasiController::class)->names([
@@ -60,13 +60,13 @@ Route::get('/', function () {
         ]);
 
         Route::resource('laporan', LaporanController::class)->names([
-            'index' => 'wali.laporan.index',
-            'create' => 'wali.laporan.create',
-            'store' => 'wali.laporan.store',
-            'show' => 'wali.laporan.show',
-            'edit' => 'wali.laporan.edit',
-            'update' => 'wali.laporan.update',
-            'destroy' => 'wali.laporan.destroy',
+           'index' => 'wali.laporan.index',
+           'create' => 'wali.laporan.create',
+           'store' => 'wali.laporan.store',
+           'show' => 'wali.laporan.show',
+           'edit' => 'wali.laporan.edit',
+           'update' => 'wali.laporan.update',
+           'destroy' => 'wali.laporan.destroy',
         ]);
             // Route::get('home', [UserController::class, 'home'])->name('pages.home.home');
     });
