@@ -13,7 +13,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     <div class="card-title">Edit Data | <b>{{ $siswa->nama }}</b></div>
-                    <a href="{{ route('list_siswa.index') }}" class="btn btn-primary">Kembali</a>
+                    <a href="{{ route('admin.list_siswa.index') }}" class="btn btn-primary">Kembali</a>
                 </div>
                 <div class="card-body">
                     @if (session()->has('pesan'))
@@ -21,7 +21,7 @@
                             {{ session('pesan') }}
                         </div>
                     @endif
-                    <form class="col-6" action="/list_siswa/{{ $siswa->id }}" method="POST" enctype="multipart/form-data">
+                    <form class="col-6" action="{{ route('admin.list_siswa.update', $siswa->id) }}" method="POST" enctype="multipart/form-data">
                         @method('put')
                         @csrf
                         <div class="form-group">

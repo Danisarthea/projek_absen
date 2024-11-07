@@ -59,7 +59,7 @@ class SiswaController extends Controller
         }
         $siswa->save();
     
-        return redirect()->route('list_siswa.index')->with('pesan', 'Data Berhasil Disimpan');
+        return redirect()->route('admin.list_siswa.index')->with('pesan', 'Data Berhasil Disimpan');
     }
     
 
@@ -68,7 +68,7 @@ class SiswaController extends Controller
      */
     public function show($id)
     {
-        $siswa = Siswa::with('kelas')->findOrFail($id); // Get student with their class information
+        $siswa = Siswa::with('kelas')->findOrFail($id); 
         return view('pages.admin.kdatasiswa.detailsiswa', compact('siswa'));
     }
 
@@ -79,7 +79,7 @@ class SiswaController extends Controller
     public function edit($id)
     {
         $siswa = Siswa::with('kelas')->findOrFail($id);
-        $kelas = Kelas::all(); // Retrieve all classes
+        $kelas = Kelas::all(); 
         return view('pages.admin.kdatasiswa.edit', compact('siswa', 'kelas'));
     }
     
@@ -92,13 +92,13 @@ class SiswaController extends Controller
     $siswa = Siswa::findOrFail($id);
     
     $siswa->nama = $request->input('nama');
-    $siswa->kelas_id = $request->input('kelas'); // Make sure you are using kelas_id
+    $siswa->kelas_id = $request->input('kelas');
     $siswa->nis = $request->input('nis');
     $siswa->jenis_kelamin = $request->input('jenis_kelamin');
     $siswa->alamat = $request->input('alamat');
     $siswa->save();
 
-    return redirect()->route('list_siswa.index')->with('pesan', 'Data Siswa berhasil diperbarui.');
+    return redirect()->route('admin.list_siswa.index')->with('pesan', 'Data Siswa berhasil diperbarui.');
 }
 
 

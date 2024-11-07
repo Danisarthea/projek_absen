@@ -19,7 +19,7 @@
                         <!-- start profil -->
                         <div class="card col-3 col-md-3 border mx-3" style="height:150px; ">
                             <div class="profile d-flex align-items-center">
-                                <img src="img/jm_denis.jpg" class="ms-1 my-4" style="height: 100px;">
+                                <img src="{{ asset('img/jm_denis.jpg') }}" class="ms-1 my-4" style="height: 100px;">
                             <div class="ms-4 text-center">
                                 <b class="fw-bold ms-4" style="font-size: 20px;">Afriza</b><br>
                                 <small class="ms-4">XII RPL</small>
@@ -138,8 +138,8 @@
                     <!-- start tombol konfirmasi -->
                         <div class="row">
                             <div class="col-3 col-sm-3 ms-4">
-                                <a href="{{ route('pages.verifikasi.antriverifikasi') }}" class="btn btn-primary my-2" style="width: 225px;">Setuju</a><br>
-                                <a href="{{ route('pages.verifikasi.antriverifikasi') }}" class="btn btn-danger" style="width: 225px;">Tidak Setuju</a>
+                                <a href="{{ route('wali.antri_verifikasi.index') }}" class="btn btn-primary my-2" style="width: 225px;">Setuju</a><br>
+                                <a href="{{ route('wali.antri_verifikasi.index') }}" class="btn btn-danger" style="width: 225px;">Tidak Setuju</a>
                             </div>
                     <!-- end tombol konfirmasi -->
 

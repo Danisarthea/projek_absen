@@ -1,8 +1,8 @@
 
 
 <?php $__env->startSection('content'); ?>
-<div class="container">
-  <div class="page-inner">
+  <div class="container">
+    <div class="page-inner">
       <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4" >
           <div>
               <h3 class="fw-bold mb-3">Home</h3>
@@ -115,27 +115,23 @@
                   </tr>
                 </thead>
                 <tbody>
-                <?php $__currentLoopData = $history; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <tr>
-                    <td class="text-center"><?php echo e($item->id); ?></td>
-                    <td class="text-center"><?php echo e($item->nama); ?></td>
-                    <td class="text-center"><?php echo e($item->kelas); ?></td>
-                    <td class="text-center"><?php echo e($item->keterangan); ?></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                </tr>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-              </tbody>
+                  <?php $__currentLoopData = $history; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <tr>
+                      <td class="text-center"><?php echo e($item->id); ?></td>
+                      <td class="text-center"><?php echo e($item->nama); ?></td>
+                      <td class="text-center"><?php echo e($item->kelas); ?></td>
+                      <td class="text-center"><?php echo e($item->keterangan); ?></td>
+                      <td class="text-center"></td>
+                      <td class="text-center"></td>
+                    </tr>
+                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </tbody>
               </table>
             <!-- end tabel  -->
           </div>
         </div>
       </div>
+    </div>
   </div>
-</div>
 <?php $__env->stopSection(); ?>
-
-
-
-            
 <?php echo $__env->make('components.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\absis-web\resources\views/home.blade.php ENDPATH**/ ?>

@@ -13,7 +13,7 @@
               <div class="card">
                 <div class="card-header d-flex justify-content-between">
                   <div class="card-title">List Wali Kelas</div>
-                  <a href="/list_wali/create" class="btn btn-primary">Tambah</a>
+                  <a href="{{ route('admin.list_wali.create') }}" class="btn btn-primary">Tambah</a>
                 </div>
                 <div class="card-body">
 
@@ -38,11 +38,12 @@
                           <td class="text-center">{{ $wl->kontak }}</td>
                           <td class="text-center">{{ $wl->jenis_kelamin }}</td>
                           <td class="text-center">
-                            <a href="/list_wali/{{ $wl->id }}/edit" class="btn btn-primary"><i class="far fa-edit"></i></a>
-                            <form action="/list_wali/{{ $wl->id }}" method="post" class="d-inline">
-                              @csrf
-                              @method('delete')
-                              <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?')"><i class="far fa-trash-alt"></i></button>
+                            <a href="{{ route('admin.list_wali.show', $wl->id) }}" class="btn btn-info"><i class="far fa-eye"></i></a>
+                            <a href="{{ route('admin.list_wali.edit', $wl->id) }}" class="btn btn-primary"><i class="far fa-edit"></i></a>
+                            <form action="{{ route('admin.list_wali.destroy', $wl->id) }}" method="post" class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?')"><i class="far fa-trash-alt"></i></button>
                             </form>
                           </td>
                         </tr>

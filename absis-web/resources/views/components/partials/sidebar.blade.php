@@ -64,21 +64,21 @@
                 </span>
                 <h4 class="text-section">Wali Kelas</h4>
               </li>
-              <li class="nav-item {{ \Route::is('index') ? 'active' : '' }}">
-                <a href="{{ route('index') }}">
+              <li class="nav-item {{ \Route::is('wali.dashboard.*') ? 'active' : '' }}">
+                <a href="{{ route('wali.dashboard.index') }}">
                   <i class="fas fa-home"></i>
                   <span class="sub-item">Home</span>  
                 </a>
               </li>
-              <li class="nav-item {{ \Route::is('pages.verifikasi.*') ? 'active' : '' }}">
-                <a href="{{ route('pages.verifikasi.antriverifikasi') }}">
+              <li class="nav-item {{ \Route::is('wali.antri_verifikasi.*') ? 'active' : '' }}">
+                <a href="{{ route('wali.antri_verifikasi.index') }}">
                   <i class="fas fa-check"></i>
                   <span class="sub-item">Verifikasi</span>
                   <span class="badge badge-secondary">1</span>
                 </a>
               </li>
-              <li class="nav-item {{ \Route::is('laporan.*') ? 'active' : '' }}">
-                <a href="{{ route('laporan.index') }}">
+              <li class="nav-item {{ \Route::is('wali.laporan.*') ? 'active' : '' }}">
+                <a href="{{ route('wali.laporan.index') }}">
                   <i class="fas fa-book"></i>
                   <span class="sub-item">Laporan Kehadiran</span>
                 </a>
@@ -90,31 +90,40 @@
                 </span>
                 <h4 class="text-section">Admin</h4>
               </li>
-              <li class="nav-item {{ \Route::is('list_siswa.*') ? 'active' : '' }}">
-                <a href="{{ route('list_siswa.index') }}">
-                  <i class="fas fa-user"></i>
-                  <span class="sub-item">Data Siswa</span>
+              <li class="nav-item {{ \Route::is('admin.dashboard.*') ? 'active' : '' }}">
+                <a href="{{ route('admin.dashboard.index') }}">
+                    <i class="fas fa-chart-line"></i>
+                    <span class="sub-item">Dashboard</span>
                 </a>
-              </li>
-              <li class="nav-item {{ \Route::is('list_wali.*') ? 'active' : '' }}">
-                <a href="{{ route('list_wali.index') }}">
-                  <i class="fas fa-user-tie"></i>
-                  <span class="sub-item">Data Wali Kelas</span>
+            </li>
+            
+            <li class="nav-item {{ \Route::is('admin.list_siswa.*') ? 'active' : '' }}">
+                <a href="{{ route('admin.list_siswa.index') }}">
+                    <i class="fas fa-user"></i>
+                    <span class="sub-item">Data Siswa</span>
                 </a>
-              </li>
-              <li class="nav-item {{ \Route::is('list_kelas.*') ? 'active' : '' }}">
-                <a href="{{ route('list_kelas.index') }}">
-                  <i class="fas fa-chalkboard-teacher"></i>
-                  <span class="sub-item">Data Kelas</span>
+            </li>
+            
+            <li class="nav-item {{ \Route::is('admin.list_wali.*') ? 'active' : '' }}">
+                <a href="{{ route('admin.list_wali.index') }}">
+                    <i class="fas fa-user-tie"></i>
+                    <span class="sub-item">Data Wali Kelas</span>
                 </a>
-              </li>
-              <li class="nav-item {{ \Route::is('pages.kdatakehadiran.*') ? 'active' : '' }}">
-                <a href="{{ route('pages.kdatakehadiran.kehadiran') }}">
-                  <i class="fas fa-clipboard-list"></i>
-                  <span class="sub-item">Data Kehadiran</span>
+            </li>
+            
+            <li class="nav-item {{ \Route::is('admin.list_kelas.*') ? 'active' : '' }}">
+                <a href="{{ route('admin.list_kelas.index') }}">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <span class="sub-item">Data Kelas</span>
                 </a>
-              </li>
-            </ul>
+            </li>
+            
+            <li class="nav-item {{ \Route::is('admin.pages.kdatakehadiran.kehadiran') ? 'active' : '' }}">
+                <a href="{{ route('admin.pages.kdatakehadiran.kehadiran') }}">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span class="sub-item">Data Kehadiran</span>
+                </a>
+            </li>            
           </div>
         </div>
       </div>

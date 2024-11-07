@@ -1,8 +1,8 @@
 @extends('components.layout')
 
 @section('content')
-<div class="container">
-  <div class="page-inner">
+  <div class="container">
+    <div class="page-inner">
       <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4" >
           <div>
               <h3 class="fw-bold mb-3">Home</h3>
@@ -115,26 +115,22 @@
                   </tr>
                 </thead>
                 <tbody>
-                @foreach($history as $item)
-                <tr>
-                    <td class="text-center">{{ $item->id }}</td>
-                    <td class="text-center">{{ $item->nama }}</td>
-                    <td class="text-center">{{ $item->kelas }}</td>
-                    <td class="text-center">{{ $item->keterangan }}</td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                </tr>
-            @endforeach
-              </tbody>
+                  @foreach($history as $item)
+                    <tr>
+                      <td class="text-center">{{ $item->id }}</td>
+                      <td class="text-center">{{ $item->nama }}</td>
+                      <td class="text-center">{{ $item->kelas }}</td>
+                      <td class="text-center">{{ $item->keterangan }}</td>
+                      <td class="text-center"></td>
+                      <td class="text-center"></td>
+                    </tr>
+                  @endforeach
+                </tbody>
               </table>
             <!-- end tabel  -->
           </div>
         </div>
       </div>
+    </div>
   </div>
-</div>
 @endsection
-
-
-
-            

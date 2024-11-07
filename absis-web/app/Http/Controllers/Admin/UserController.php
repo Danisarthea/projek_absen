@@ -16,10 +16,9 @@ class UserController extends Controller
 
     // start kelola kehadiran
 
-    public function kehadiran()
+    public function index()
     {
         //
-        return view('pages.admin.kdatakehadiran.kehadiran');
     }
 
     // end kelola kehadiran

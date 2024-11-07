@@ -27,33 +27,34 @@ class WaliController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-{
-    $kelas = \App\Models\Kelas::all(); // Mengambil semua data kelas
-    return view('pages.admin.kdatawali.tambah', compact('kelas'));
-}
+    {
+        $kelas = \App\Models\Kelas::all(); 
+        return view('pages.admin.kdatawali.tambah', compact('kelas'));
+    }
 
-public function store(Request $request)
-{
-    $validatedData = $request->validate([
-        'nama' => 'required|min:3',
-        'kontak' => 'required|min:11|max:12',
-        'jenis_kelamin' => 'required',
-        'alamat' => 'nullable',
-        'wali_kelas' => 'required|exists:kelas,id', // pastikan wali_kelas mengacu ke ID kelas
-    ]);
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'nama' => 'required|min:3',
+            'kontak' => 'required|min:11|max:12',
+            'jenis_kelamin' => 'required',
+            'alamat' => 'nullable',
+            'wali_kelas' => 'required|exists:kelas,id',
+        ]);
 
-    Wali::create($validatedData);
+        Wali::create($validatedData);
 
-    return redirect()->route('list_wali.index')->with('success', 'Data wali berhasil disimpan');
-}
+        return redirect()->route('admin.list_wali.index')->with('success', 'Data wali berhasil disimpan');
+    }
 
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $wali = Wali::with('kelas')->findOrFail($id);
+        return view('pages.admin.kdatawali.detailwali', compact('wali'));
     }
 
     /**
@@ -62,8 +63,8 @@ public function store(Request $request)
     public function edit(string $id)
     {
         $wali = Wali::findOrFail($id);
-        $kelas = \App\Models\Kelas::all(); // Get all classes
-        return view('pages.admin.kdatawali.edit', compact('wali', 'kelas')); // Pass both wali and kelas
+        $kelas = \App\Models\Kelas::all(); 
+        return view('pages.admin.kdatawali.edit', compact('wali', 'kelas')); 
     }
     
 
@@ -71,21 +72,21 @@ public function store(Request $request)
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-{
-    $validatedData = $request->validate([
-        'nama' => 'required|min:3',
-        'kontak' => 'required|min:11|max:12',
-        'jenis_kelamin' => 'required',
-        'alamat' => 'nullable',
-        'wali_kelas' => 'required|exists:kelas,id', // Validate the wali_kelas
-    ]);
+    {
+        $validatedData = $request->validate([
+            'nama' => 'required|min:3',
+            'kontak' => 'required|min:11|max:12',
+            'jenis_kelamin' => 'required',
+            'alamat' => 'nullable',
+            'wali_kelas' => 'required|exists:kelas,id', 
+        ]);
 
-    $wali = Wali::findOrFail($id);
-    $wali->fill($validatedData);
-    $wali->save();
+        $wali = Wali::findOrFail($id);
+        $wali->fill($validatedData);
+        $wali->save();
 
-    return redirect()->route('list_wali.index')->with('success', 'Data wali berhasil diperbarui');
-}
+        return redirect()->route('admin.list_wali.index')->with('success', 'Data wali berhasil diperbarui');
+    }
 
 
     /**

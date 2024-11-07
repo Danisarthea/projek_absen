@@ -38,7 +38,7 @@
                     <tbody>
                       <tr>
                         <td>
-                        <img src="img/jm_denis.jpg" class="rounded-circle me-3" style="height: 30px;">  
+                        <img src="{{ asset('img/jm_denis.jpg') }}" class="rounded-circle me-3" style="height: 30px;">  
                         Daniswara Arthea Pragustama</td>
                         <td class="text-center">XII RPL</td>
                         <td class="text-center">Izin</td>
@@ -48,7 +48,7 @@
                       </tr>
                       <tr>
                         <td>
-                        <img src="img/mlane.jpg" class="rounded-circle me-3" style="height: 30px;">    
+                        <img src="{{ asset('img/mlane.jpg') }}" class="rounded-circle me-3" style="height: 30px;">    
                         Afriza David Fauzi</td>
                         <td class="text-center">XII RPL</td>
                         <td class="text-center">Hadir</td>
@@ -58,7 +58,7 @@
                       </tr>
                       <tr>
                         <td>
-                        <img src="img/sauro.jpg" class="rounded-circle me-3" style="height: 30px;">    
+                        <img src="{{ asset('img/sauro.jpg') }}" class="rounded-circle me-3" style="height: 30px;">    
                         Agam Munandar</td>
                         <td class="text-center">XII RPL</td>
                         <td class="text-center">Hadir</td>
@@ -68,7 +68,7 @@
                       </tr>
                       <tr>
                         <td>
-                        <img src="img/talha.jpg" class="rounded-circle me-3" style="height: 30px;">    
+                        <img src="{{ asset('img/talha.jpg') }}" class="rounded-circle me-3" style="height: 30px;">    
                         Agung Herdiansyah</td>
                         <td class="text-center">XII RPL</td>
                         <td class="text-center">Hadir</td>
@@ -78,7 +78,7 @@
                       </tr>
                       <tr>
                         <td>
-                        <img src="img/arashmil.jpg" class="rounded-circle me-3" style="height: 30px;">    
+                        <img src="{{ asset('img/arashmil.jpg') }}" class="rounded-circle me-3" style="height: 30px;">    
                         Eshan Ghulam Zakiya</td>
                         <td class="text-center">XII RPL</td>
                         <td class="text-center">Sakit</td>

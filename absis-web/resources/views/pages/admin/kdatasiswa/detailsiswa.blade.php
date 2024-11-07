@@ -13,7 +13,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     <h4 class="card-title">{{ $siswa->nama }}</h4>
-                    <a href="{{ route('list_siswa.index') }}" class="btn btn-primary">Kembali</a>
+                    <a href="{{ route('admin.list_siswa.index') }}" class="btn btn-primary">Kembali</a>
                 </div>
                 <div class="card-body">
                     <table class="table table-bordered">
