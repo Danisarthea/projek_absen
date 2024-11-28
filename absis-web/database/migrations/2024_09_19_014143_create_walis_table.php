@@ -14,6 +14,7 @@ return new class extends Migration
     Schema::create('walis', function (Blueprint $table) {
         $table->id();
         $table->string('nama');
+        // $table->integer('user_id');
         $table->unsignedBigInteger('wali_kelas');
         $table->string('kontak');
         $table->enum('jenis_kelamin', ['laki-laki', 'perempuan']);
